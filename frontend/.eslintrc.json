@@ -1,0 +1,21 @@
+{
+  "parser": "@babel/eslint-parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime" // Add this line to support the new JSX Transform
+  ],
+  "plugins": ["react"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off", // Turn off the rule that enforces React to be in scope
+    "no-unused-vars": [
+      "error",
+      { "varsIgnorePattern": "React" } // Allow React to be defined but unused
+    ]
+  }
+}

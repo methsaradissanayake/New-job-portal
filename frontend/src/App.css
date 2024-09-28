@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .bg{
+    width: auto;
+    height: 100vh;
+    background-image: url('./assets/4.jpg');
+    opacity: ;
+} */
