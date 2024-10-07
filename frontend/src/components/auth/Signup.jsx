@@ -9,12 +9,11 @@ import axios from "axios";
 import { toast } from "sonner";
 
 
-// Define USER_API_END_POINT here
 const USER_API_END_POINT = "http://localhost:8000/api/v1/user";
 
 const Signup = () => {
     const [input, setInput] = useState({
-        fullname: "",
+        filename: "",
         email: "",
         phoneNumber: "",
         password: "",
@@ -34,7 +33,7 @@ const Signup = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append("fullname", input.fullname);
+        formData.append("filename", input.filename);
         formData.append("email", input.email);
         formData.append("phoneNumber", input.phoneNumber);
         formData.append("password", input.password);
@@ -73,8 +72,8 @@ const Signup = () => {
                         <Input
                             type="text"
                             placeholder="ex : Methsara"
-                            value={input.fullname}
-                            name="fullname"
+                            value={input.filename}
+                            name="filename"
                             onChange={changeEventHandler}
                         />
                     </div>
