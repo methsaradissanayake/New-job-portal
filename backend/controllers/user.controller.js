@@ -7,6 +7,8 @@ import cloudinary from "../utils/cloudinary.js";
 export const register = async (req, res) => {
     try {
         const { fullname, email, phoneNumber, password, role } = req.body;
+        console.log()
+        console.log(req.body)
          
         if (!fullname || !email || !phoneNumber || !password || !role) {
             return res.status(400).json({
@@ -27,16 +29,18 @@ export const register = async (req, res) => {
         }
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        await User.create({
+        const response = await User.create({
             fullname,
             email,
             phoneNumber,
             password: hashedPassword,
             role,
-            profile:{
-                profilePhoto:cloudResponse.secure_url,
-            }
+            // profile:{
+            //     profilePhoto:cloudResponse.secure_url,
+            // }
         });
+
+        console.log(response,"res", user,"user")
 
         return res.status(201).json({
             message: "Account created successfully.",
@@ -70,7 +74,7 @@ export const login = async (req, res) => {
                 success: false,
             })
         };
-        // check role is correct or not
+      
         if (role !== user.role) {
             return res.status(400).json({
                 message: "Account doesn't exist with current role.",
